@@ -20,7 +20,7 @@ In this application it is possible to register collection points and types of ma
     - Typescript
     - Sqlite
   
-  - **Fron end**
+  - **Front end**
     - ReactJS
     - Typescript
     - react-router-dom
