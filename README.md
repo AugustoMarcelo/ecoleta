@@ -6,7 +6,7 @@
 
 In this application it is possible to register collection points and types of materials collected, showing them on maps and allowing you to search for the nearest points.
 
-## Index
+## 🚀 Index
 - ⚙ [Tecnologies](#-tecnologies)
 - 💻 [How to run](#-how-to-run)
 - 📷 [Previews](#-previews)
