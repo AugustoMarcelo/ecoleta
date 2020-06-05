@@ -27,7 +27,19 @@ In this application it is possible to register collection points and types of ma
     - axios
     - leaflet (Free map)
     - react-leaflet
-    
+  
+  - **Mobile**
+    - React Native/Expo
+    - Typescript
+    - react-navigation
+    - axios
+    - react-native-picker-select
+    - react-native-svg
+    - react-native-maps
+    - expo-font
+    - expo-location
+    - expo-mail-composer
+
 ---
 
 ## 💻 How to run
@@ -59,6 +71,19 @@ In this application it is possible to register collection points and types of ma
     cd web
     
     # Running web project
+    yarn start
+  ```
+
+  > Running mobile project
+  > You will need to download the Expo app. When the application starts, scan the qrcode with the Expo you installed.
+  ```bash
+    # Accessing mobile project
+    cd mobile
+
+    # Change the IP in services/api.ts to connect with the back end
+    cd services
+
+    # Running
     yarn start
   ```
 
