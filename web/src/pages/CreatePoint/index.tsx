@@ -6,6 +6,7 @@ import axios from 'axios';
 import { LeafletMouseEvent } from 'leaflet';
 
 import SuccessModal from '../../components/SuccessModal';
+import Dropzone from '../../components/Dropzone';
 
 import api from '../../services/api';
 
@@ -37,12 +38,14 @@ const CreatePoint = () => {
     name: '',
     email: '',
     whatsapp: '',
+    address: '',
   });
 
   const [selectedUf, setSelectedUf] = useState('0');
   const [selectedCity, setSelectedCity] = useState('0');
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0,0]);
+  const [selectedFile, setSelectedFile] = useState<File>();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
@@ -114,21 +117,26 @@ const CreatePoint = () => {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const { name, email, whatsapp } = formData;
+    const { name, email, whatsapp, address } = formData;
     const uf = selectedUf;
     const city = selectedCity;
     const [latitude, longitude] = selectedPosition;
     const items = selectedItems;
 
-    const data = {
-      name,
-      email,
-      whatsapp,
-      uf,
-      city,
-      latitude,
-      longitude,
-      items,
+    const data = new FormData();
+
+    data.append('name', name);
+    data.append('email', email);
+    data.append('whatsapp', whatsapp);
+    data.append('address', address);
+    data.append('uf', uf);
+    data.append('city', city);
+    data.append('latitude', String(latitude));
+    data.append('longitude', String(longitude));
+    data.append('items', items.join(','));
+
+    if (selectedFile) {
+      data.append('image', selectedFile);
     }
 
     await api.post('points', data);
@@ -150,6 +158,8 @@ const CreatePoint = () => {
 
         <form onSubmit={handleSubmit}>
           <h1>Cadastro do ponto de coleta</h1>
+
+          <Dropzone onFileUploaded={setSelectedFile} />
 
           <fieldset>
             <legend>
@@ -206,6 +216,18 @@ const CreatePoint = () => {
               />
               <Marker position={selectedPosition} />
             </Map>
+
+            <div className="field">
+              <label htmlFor="address">Endereço</label>
+              <input 
+                type="text" 
+                name="address" 
+                id="address" 
+                autoComplete="off"
+                value={formData.address}
+                onChange={handleInputChange}
+              />
+            </div>
 
             <div className="field-group">
               <div className="field">
