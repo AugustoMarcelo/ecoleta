@@ -89,9 +89,11 @@ interface RouteParams {
 interface PointData {
   point: {
     image: string;
+    image_url: string;
     name: string;
     email: string;
     whatsapp: string;
+    address: string;
     city: string;
     uf: string;
   };
@@ -139,7 +141,7 @@ const Detail = () => {
           <Icon name="arrow-left" size={20} color="#34cb79" />
         </TouchableOpacity>
 
-        <Image style={styles.pointImage} source={{ uri: data.point.image || 'https://images.unsplash.com/photo-1571173729460-4f1e1da18fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60' }} />
+        <Image style={styles.pointImage} source={{ uri: data.point.image_url }} />
 
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>
@@ -148,6 +150,7 @@ const Detail = () => {
 
         <View style={styles.address}>
           <Text style={styles.addressTitle}>Endereço</Text>
+          <Text style={styles.addressContent}>{data.point.address}</Text>
           <Text style={styles.addressContent}>
             {`${data.point.city}, ${data.point.uf}`}
           </Text>
