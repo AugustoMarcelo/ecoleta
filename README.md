@@ -19,6 +19,8 @@ In this application it is possible to register collection points and types of ma
     - Express
     - Typescript
     - Sqlite
+    - multer
+    - celebrate/Joi
   
   - **Front end**
     - ReactJS
@@ -49,6 +51,8 @@ In this application it is possible to register collection points and types of ma
     # Cloning repository
     git clone https://github.com/AugustoMarcelo/ecoleta.git
   ```
+
+  Copy the `.env.example` and create `.env` with your *IP* and *PORT* informations
 
   > Running server
   ```bash
@@ -90,6 +94,14 @@ In this application it is possible to register collection points and types of ma
 ---
 
 ## 📷 Previews
-> Home Page
-![image](https://user-images.githubusercontent.com/11545976/83694247-055c4300-a5ce-11ea-9242-074c8789b583.png)
+
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/11545976/83932227-93276200-a777-11ea-9a52-f1ccb07bd759.gif" />
+</h1>
+
+---
+
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/11545976/83931639-1f378a80-a774-11ea-8db3-d3f31b1945f7.gif" height="500" />
+</h1>
  
